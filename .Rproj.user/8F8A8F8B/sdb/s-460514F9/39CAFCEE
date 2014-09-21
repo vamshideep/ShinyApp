@@ -1,0 +1,16 @@
+{
+    "contents" : "library(shiny)\nshinyUI(pageWithSidebar(\n  headerPanel(\"Predict your car MPG\"),\n  sidebarPanel(\n    h2('Enter your car data here'),\n    #numericInput('id4','Number of cylinder in your car',4, min = 4, max = 30, step = 1),\n    selectInput('id1','Number of cylinders in your car',selected = \"cyl\",choices=list(\"4\",\"6\",\"8\")),\n    selectInput(\"id2\", \"is your car Automatic(0) or Manual(1)?\",selected=\"am\",choices=list(\"0\",\"1\")),\n    p(em(\"Documentation:\",a(\"PredictMPG\",href=\"index.html\"))),\n    submitButton('Submit')\n    #numericInput('id3','Horse power of your car',0,min=2,max=10,step=2)\n  ),\n  mainPanel(\n    h1('Results of Prediction'),\n    p('We are using this formula behind the scene to calculate your prediction'),\n    p('newdata <- data.frame(cyl,am)'),\n    p('fit1 <- lm(mpg ~ factor(cyl) + factor(am), data=mtcars)'),\n    p(' '),\n    p('predict(fit1,newdata)'),\n    h4('Your car will have a MPG of'),\n    verbatimTextOutput(\"mpg\")\n    \n  )\n))\n",
+    "created" : 1411339508202.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "111127765",
+    "id" : "39CAFCEE",
+    "lastKnownWriteTime" : 1411340486,
+    "path" : "C:/Users/vdeversh/Downloads/CourseEra/DataProducts/Projects/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
