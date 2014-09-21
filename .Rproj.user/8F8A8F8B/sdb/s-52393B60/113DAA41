@@ -1,0 +1,16 @@
+{
+    "contents" : "library(shiny)\nshinyUI(pageWithSidebar(\n  headerPanel(\"Predict your car MPG\"),\n  sidebarPanel(\n    h2('Enter your car data here'),\n    selectInput('id1','Number of cylinders in your car',selected = \"cyl\",choices=list(\"4\",\"6\",\"8\")),\n    selectInput(\"id2\", \"is your car Automatic(0) or Manual(1)?\",selected=\"am\",choices=list(\"0\",\"1\")),\n    submitButton('Submit')\n    #numericInput('id3','Horse power of your car',0,min=2,max=10,step=2)\n  ),\n  mainPanel(\n    h3('Results of Prediction'),\n    h4('Your car will have a MPG of'),\n    verbatimTextOutput(\"mpg\")\n    \n  )\n))\n",
+    "created" : 1411324204326.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "720610545",
+    "id" : "113DAA41",
+    "lastKnownWriteTime" : 1411323388,
+    "path" : "C:/Users/vdeversh/Downloads/CourseEra/DataProducts/Projects/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
