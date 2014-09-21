@@ -1,0 +1,16 @@
+{
+    "contents" : "---\ntitle       : Predict your cars MPG\nsubtitle    : Based on mtcars dataset\nauthor      : Vamshideep\njob         : \nframework   : io2012        # {io2012, html5slides, shower, dzslides, ...}\nhighlighter : highlight.js  # {highlight.js, prettify, highlight}\nhitheme     : tomorrow      # \nwidgets     : []            # {mathjax, quiz, bootstrap}\nmode        : selfcontained # {standalone, draft}\nknit        : slidify::knit2slides\n---\n\n## Purpose\n\nThe purpose of this application is to predict your car's MPG.\n\nTo predict the MPG, we will need \n1. The number of cylinders in your car \n2. Transmission type of your car like Automatic or Manual\n\n--- .class #id \n\n## Review of mtcars data set\n\n```{r}\nstr(mtcars)\n```\n\n--- .class #id \n\n## Prediction Model\n\nI have trained the model using Regression Modeling with number of cylinders and transmission type from mtcars data set\n\n```{r}\nfit <- lm(mpg ~ factor(cyl)+factor(am),data=mtcars)\n```\n\n--- .class #id \n\n## Application Link\n\nPlease check out the application your self over here\n\nhttps://vamshideep.shinyapps.io/Projects\n\n<img src=\"./assets/img/Capture.PNG\" alt=\"Predicted Output\">\n\n--- .class #id\n",
+    "created" : 1411336963615.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3408469094",
+    "id" : "B2586E63",
+    "lastKnownWriteTime" : 1411337240,
+    "path" : "C:/Users/vdeversh/Downloads/CourseEra/DataProducts/Projects/PMPG/index.Rmd",
+    "project_path" : "PMPG/index.Rmd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<style type="text/css">
+.knitr.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+},
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0em 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.rimage.left {
+  text-align: left;
+}
+.rimage.right {
+  text-align: right;
+}
+.rimage.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>Help file for predicting MPG</title>
+</head>
+
+<body>
+
+<p> <b>Help file for Predicting MPG</b></p>
+
+<p> 1) We start by reviewing the mtcars data set </p>
+
+<b>Summary of mtcars dataset </b>
+<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">summary</span><span class="hl std">(mtcars)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##       mpg            cyl            disp             hp       
+##  Min.   :10.4   Min.   :4.00   Min.   : 71.1   Min.   : 52.0  
+##  1st Qu.:15.4   1st Qu.:4.00   1st Qu.:120.8   1st Qu.: 96.5  
+##  Median :19.2   Median :6.00   Median :196.3   Median :123.0  
+##  Mean   :20.1   Mean   :6.19   Mean   :230.7   Mean   :146.7  
+##  3rd Qu.:22.8   3rd Qu.:8.00   3rd Qu.:326.0   3rd Qu.:180.0  
+##  Max.   :33.9   Max.   :8.00   Max.   :472.0   Max.   :335.0  
+##       drat            wt            qsec            vs       
+##  Min.   :2.76   Min.   :1.51   Min.   :14.5   Min.   :0.000  
+##  1st Qu.:3.08   1st Qu.:2.58   1st Qu.:16.9   1st Qu.:0.000  
+##  Median :3.69   Median :3.33   Median :17.7   Median :0.000  
+##  Mean   :3.60   Mean   :3.22   Mean   :17.8   Mean   :0.438  
+##  3rd Qu.:3.92   3rd Qu.:3.61   3rd Qu.:18.9   3rd Qu.:1.000  
+##  Max.   :4.93   Max.   :5.42   Max.   :22.9   Max.   :1.000  
+##        am             gear           carb     
+##  Min.   :0.000   Min.   :3.00   Min.   :1.00  
+##  1st Qu.:0.000   1st Qu.:3.00   1st Qu.:2.00  
+##  Median :0.000   Median :4.00   Median :2.00  
+##  Mean   :0.406   Mean   :3.69   Mean   :2.81  
+##  3rd Qu.:1.000   3rd Qu.:4.00   3rd Qu.:4.00  
+##  Max.   :1.000   Max.   :5.00   Max.   :8.00
+</pre></div>
+</div></div>
+
+2) We build our model using regression model with the following code.
+<p>fit <- lm (mpg ~ factor(cyl) + factor(am), data=mpg)</p>
+
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">fit</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">lm</span> <span class="hl std">(mpg</span> <span class="hl opt">~</span> <span class="hl kwd">factor</span><span class="hl std">(cyl)</span> <span class="hl opt">+</span> <span class="hl kwd">factor</span><span class="hl std">(am),</span> <span class="hl kwc">data</span><span class="hl std">=mtcars)</span>
+<span class="hl kwd">summary</span><span class="hl std">(fit)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## 
+## Call:
+## lm(formula = mpg ~ factor(cyl) + factor(am), data = mtcars)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -5.962 -1.497 -0.206  1.891  6.538 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)     24.80       1.32   18.75  < 2e-16 ***
+## factor(cyl)6    -6.16       1.54   -4.01  0.00041 ***
+## factor(cyl)8   -10.07       1.45   -6.93  1.5e-07 ***
+## factor(am)1      2.56       1.30    1.97  0.05846 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 3.07 on 28 degrees of freedom
+## Multiple R-squared:  0.765,	Adjusted R-squared:  0.74 
+## F-statistic: 30.4 on 3 and 28 DF,  p-value: 5.96e-09
+</pre></div>
+</div></div>
+
+3) We collect your car's cylinder, transmission info and pass it as data frame to our predict function and predict the output
+
+</body>
+</html>

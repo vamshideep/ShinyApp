@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<title>Help file for predicting MPG</title>
+</head>
+
+<body>
+
+<p> <b>Help file for Predicting MPG</b></p>
+
+<p> 1) We start by reviewing the mtcars data set </p>
+
+<b>Summary of mtcars dataset </b>
+<!--begin.rcode
+summary(mtcars)
+end.rcode-->
+
+2) We build our model using regression model with the following code.
+<p>fit <- lm (mpg ~ factor(cyl) + factor(am), data=mpg)</p>
+
+<!--begin.rcode fig.width=7, fig.height=6
+fit <- lm (mpg ~ factor(cyl) + factor(am), data=mtcars)
+summary(fit)
+end.rcode-->
+
+3) We collect your car's cylinder, transmission info and pass it as data frame to our predict function and predict the output
+
+</body>
+</html>
